@@ -18,7 +18,7 @@ else
 fi
 
 COIN_PORT=40555
-RPC_PORT=12221
+RPC_PORT=40556
 
 NODEIP=$(curl -s4 icanhazip.com)
 
@@ -127,6 +127,7 @@ clear
 function update_config() {
   cat << EOF >> $CONFIGFOLDER/$CONFIG_FILE
 #bind=$NODEIP
+externalip=$NODEIP
 masternode=1
 masternodeaddr=$NODEIP:$COIN_PORT
 masternodeprivkey=$COINKEY
