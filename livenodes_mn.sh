@@ -1,4 +1,6 @@
 #!/bin/bash
+# Script updated by LoulouCrypto
+# https://www.louloucrypto.fr
 
 TMP_FOLDER=$(mktemp -d)
 CONFIG_FILE='livenodes.conf'
@@ -296,3 +298,7 @@ checks
 prepare_system
 download_node
 setup_node
+
+# If you want to support me
+# LNO wallet : 
+# LL2bfd8uqMemYpW9xmtqmkA5oz1vvnvkKL
