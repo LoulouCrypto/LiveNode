@@ -7,7 +7,7 @@ COIN_DAEMON='livenodesd'
 COIN_CLI='livenodes-cli'
 COIN_PATH='/usr/local/bin/'
 COIN_TGZ='https://github.com/livenodescoin/livenodes/releases/download/v3.3.5/livenodes-3.3.5-headless-x86_64-linux-gnu.tar.gz'
-COIN_BOOTSTRAP='https://github.com/livenodescoin/livenodes/releases/download/v3.3.5/bootstrap.zip'
+$BOOTSTRAP_TGZ='https://github.com/livenodescoin/livenodes/releases/download/v3.3.5/bootstrap.zip'
 
 COIN_NAME='LivenodesCoinV3'
 
@@ -131,6 +131,18 @@ masternode=1
 masternodeaddr=$NODEIP:$COIN_PORT
 masternodeprivkey=$COINKEY
 EOF
+sleep 2
+  cd /home/$USER/.livenodes
+  rm -rf blocks chainstate 
+  sleep 1
+  echo -e "Downloading BootStrap"
+  wget --progress=bar:force $BOOTSTRAP_TGZ 2>&1 | progressfilt
+  unzip bootstrap.zip >/dev/null 2>&1
+  sleep 2
+  cd ..
+  rm -rf bootstrap.zip
+  cd ~
+  sleep 2
 }
 
 
