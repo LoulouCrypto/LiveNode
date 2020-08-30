@@ -162,19 +162,19 @@ function create_key() {
   read -e TX_INDEX
   sleep 2
   if [[ -z "$COINKEY" ]]; then
-	$COIN_DAEMON -daemon
-      sleep 45
-    COINKEY=$($COIN_CLI masternode genkey)
+	$COIN_DAEMON -daemon 
+      sleep 30
+    COINKEY=$($COIN_CLI -conf=/home/$USER/.livenodes/livenodes.conf -datadir=/home/$USER/.livenodes createmasternodekey)
     if [ "$?" -gt "0" ];
       then
       echo -e "${RED}Wallet not fully loaded. Let us wait for 30s and try again to generate the Private Key${NC}"
       sleep 30
-      COINKEY=$($COIN_CLI masternode genkey)
+      COINKEY=$($COIN_CLI -conf=/home/$USER/.livenodes/livenodes.conf -datadir=/home/$USER/.livenodes createmasternodekey)
       if [ "$?" -gt "0" ];
       then
         echo -e "${RED}Wallet not fully loaded. Let us wait for another 30s and try again to generate the Private Key${NC}"
         sleep 30
-        COINKEY=$($COIN_CLI masternode genkey)
+        COINKEY=$($COIN_CLI -conf=/home/$USER/.livenodes/livenodes.conf -datadir=/home/$USER/.livenodes createmasternodekey)
       fi
     fi
   $COIN_CLI stop
