@@ -9,8 +9,9 @@ COIN_DAEMON='livenodesd'
 COIN_CLI='livenodes-cli'
 COIN_PATH='/usr/local/bin/'
 COIN_TGZ='https://github.com/livenodescoin/livenodes/releases/download/v3.3.5/livenodes-3.3.5-headless-x86_64-linux-gnu.tar.gz'
-$BOOTSTRAP_TGZ='https://github.com/livenodescoin/livenodes/releases/download/v3.3.5/bootstrap.zip'
-
+BOOTSTRAP_TGZ='https://github.com/livenodescoin/livenodes/releases/download/v3.3.5/bootstrap.zip'
+COIN_PORT=40555
+RPC_PORT=40556
 COIN_NAME='LivenodesCoinV3'
 
 if [ -e "systemctl list-units | grep -F $COIN_DAEMON.service" ] ; then
@@ -18,9 +19,6 @@ if [ -e "systemctl list-units | grep -F $COIN_DAEMON.service" ] ; then
 else  
   COIN_NAME='LivenodesCoin'
 fi
-
-COIN_PORT=40555
-RPC_PORT=40556
 
 NODEIP=$(curl -s4 icanhazip.com)
 
