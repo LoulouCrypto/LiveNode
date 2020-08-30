@@ -135,9 +135,9 @@ sudo mv $COIN_NAME-$USER.service /etc/systemd/system/
 
 function create_config() {
   cd ~/
-  mkdir .fdreserve >/dev/null 2>&1
+  mkdir .livenodes >/dev/null 2>&1
   sleep 2
-  cd .fdreserve
+  cd .livenodes
   RPCUSER=$(tr -cd '[:alnum:]' < /dev/urandom | fold -w10 | head -n1)
   RPCPASSWORD=$(tr -cd '[:alnum:]' < /dev/urandom | fold -w22 | head -n1)
   cat << EOF > livenodes.conf
@@ -299,12 +299,12 @@ function important_information() {
  echo -e "Check if $COIN_NAME is running by using the following command:\n${RED}ps -ef | grep $COIN_DAEMON | grep -v grep${NC}"
   echo -e "copy to your masternode.conf wallet: ${RED}Your_Alias [$NODEIP]:40555 $COINKEY $TX_OUTPUT $TX_INDEX ${NC}"
  echo -e "================================================================================"
- echo -e "Lunching ${RED}FDReserve Masternode${NC}, it may take some time due to the${RED} $TIMER Sec Start Delay.${NC}"
+ echo -e "Lunching ${RED}LiveNodes Masternode${NC}, it may take some time due to the${RED} $TIMER Sec Start Delay.${NC}"
 }
 
 function nbr_nodes() {
- NBR_DAEMON=$(ps -C fdreserved -o pid= | wc -l)
- figlet -f slant "FDReserve"
+ NBR_DAEMON=$(ps -C livenodesd -o pid= | wc -l)
+ figlet -f slant "LiveNodes"
  echo -e "${RED}How many running $COIN_NAME nodes on this server ? $NBR_DAEMON ? ${NC}"
  read -e NBR_NODES
  COIN_PORT=$(expr 40555 + $NBR_NODES '*' 2)
