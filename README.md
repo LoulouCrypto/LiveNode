@@ -1,4 +1,4 @@
-# LiveNode Mn Install
+# LiveNodes Online Mn Install
 Theses folowing scripts are use to install Live Nodes Online MasterNodes
 
 To learn more about the project : https://livenodes.online/
