@@ -10,7 +10,7 @@ COIN_TGZ='https://github.com/livenodescoin/livenodes/releases/download/v3.3.5/li
 COIN_DAEMON='livenodesd'
 COIN_CLI='livenodes-cli'
 COIN_NAME='LivenodesCoinV3
-BOOTSTRAP_TGZ='COIN_BOOTSTRAP='https://github.com/livenodescoin/livenodes/releases/download/v3.3.5/bootstrap.zip'
+BOOTSTRAP_TGZ='https://github.com/livenodescoin/livenodes/releases/download/v3.3.5/bootstrap.zip'
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
