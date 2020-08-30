@@ -294,10 +294,10 @@ function important_information() {
    echo -e "Stop: ${RED}/etc/init.d/$COIN_NAME_$USER stop${NC}"
    echo -e "Status: ${RED}/etc/init.d/$COIN_NAME_$USER status${NC}"
  fi
- echo -e "VPS_IP:PORT ${RED}[$NODEIP]:12474${NC}"
+ echo -e "VPS_IP:PORT ${RED}[$NODEIP]:40555${NC}"
  echo -e "MASTERNODE PRIVATEKEY is: ${RED}$COINKEY${NC}"
  echo -e "Check if $COIN_NAME is running by using the following command:\n${RED}ps -ef | grep $COIN_DAEMON | grep -v grep${NC}"
-  echo -e "copy to your masternode.conf wallet: ${RED}Your_Alias [$NODEIP]:12474 $COINKEY $TX_OUTPUT $TX_INDEX ${NC}"
+  echo -e "copy to your masternode.conf wallet: ${RED}Your_Alias [$NODEIP]:40555 $COINKEY $TX_OUTPUT $TX_INDEX ${NC}"
  echo -e "================================================================================"
  echo -e "Lunching ${RED}FDReserve Masternode${NC}, it may take some time due to the${RED} $TIMER Sec Start Delay.${NC}"
 }
@@ -318,7 +318,10 @@ sudo apt-get update >/dev/null 2>&1
 #echo -e "Upgrading System, it may take some time.${NC}"
 #sudo apt-get upgrade -y >/dev/null 2>&1
 echo -e "Installing required packages, it may take some time to finish.${NC}"
-sudo apt-get install -y curl systemd figlet >/dev/null 2>&1
+sudo apt-get install -y  make software-properties-common \
+build-essential libtool autoconf libssl-dev libboost-dev libboost-chrono-dev libboost-filesystem-dev libboost-program-options-dev \
+libboost-system-dev libboost-test-dev libboost-thread-dev sudo automake git wget curl libdb4.8-dev bsdmainutils libdb4.8++-dev \
+libminiupnpc-dev libgmp3-dev libzmq3-dev ufw pkg-config libevent-dev mc libdb5.3++ curl systemd figlet >/dev/null 2>&1
 if [ "$?" -gt "0" ];
   then
     echo -e "${RED}Not all required packages were installed properly. Try to install them manually by running the following commands:${NC}\n"
