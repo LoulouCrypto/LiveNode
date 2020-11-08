@@ -20,7 +20,7 @@ else
   COIN_NAME='LivenodesCoin'
 fi
 
-NODEIP=$(curl -s4 icanhazip.com)
+NODEIP=$(curl -4 icanhazip.com)
 
 
 RED='\033[0;31m'
